@@ -1,0 +1,21 @@
+<h3>Cross Border Letter - Trip Details</h3>
+<form [formGroup]="crossBorderForm">
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>Vehicle license plate number</mat-label>
+    <input
+      matInput
+      placeholder="Capture your license plate here"
+      [formControl]="vehicleLicensePlateNumberControl"
+    />
+    <mat-error *ngIf="vehicleLicensePlateNumberControl.hasError('required')">
+      License plate number is required.
+    </mat-error>
+    <mat-error *ngIf="vehicleLicensePlateNumberControl.hasError('minlength')">
+      License Plate Number must be at least 7 characters long.
+    </mat-error>
+    <mat-error *ngIf="vehicleLicensePlateNumberControl.hasError('maxlength')">
+      License Plate Number cannot be more than 9 characters long.
+    </mat-error>
+  </mat-form-field>
+</form>
+<button style="margin-top: 100px" (click)="onNext()">Next</button>
